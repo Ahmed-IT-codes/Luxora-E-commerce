@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LUXORA — Premium Store</title>
+    <title>URBANA — Modern Lifestyle Store</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -23,28 +30,33 @@
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP BAR ================= -->
+
 <div class="top-bar">
-    <p>FREE SHIPPING ON ORDERS OVER RS. 5,000</p>
+    <div class="container">
+        <span>FREE DELIVERY ON ORDERS ABOVE RS. 5,000</span>
+        <span>NEW DROP • SEPTEMBER 2026</span>
+    </div>
 </div>
 
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
+
 <nav class="navbar navbar-expand-lg" id="navbar">
 
     <div class="container">
 
-        <a class="navbar-brand" href="#">
-            LUX<span>ORA</span>
+        <a class="navbar-brand" href="#home">
+            URBANA<span>.</span>
         </a>
 
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNav">
-
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+        >
             <i class="fa-solid fa-bars"></i>
-
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
@@ -60,11 +72,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#collections">Collections</a>
+                    <a class="nav-link" href="#categories">Categories</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#story">Our Story</a>
                 </li>
 
                 <li class="nav-item">
@@ -75,18 +87,18 @@
 
             <div class="nav-actions">
 
-                <button onclick="openSearch()">
+                <button onclick="openSearch()" title="Search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button onclick="openWishlist()">
+                <button onclick="showWishlist()" title="Wishlist">
                     <i class="fa-regular fa-heart"></i>
-                    <span id="wishlistCount">0</span>
+                    <b id="wishlistCount">0</b>
                 </button>
 
-                <button onclick="openCart()">
+                <button onclick="openCart()" title="Cart">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="cartCount">0</span>
+                    <b id="cartCount">0</b>
                 </button>
 
             </div>
@@ -98,25 +110,27 @@
 </nav>
 
 
-<!-- SEARCH OVERLAY -->
-<div class="search-overlay" id="searchOverlay">
+<!-- ================= SEARCH ================= -->
 
-    <button class="close-search" onclick="closeSearch()">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
+<div class="search-panel" id="searchPanel">
 
-    <div class="search-content">
+    <div class="container">
 
-        <p>SEARCH LUXORA</p>
+        <div class="search-inner">
 
-        <div class="big-search">
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search for products..."
-                onkeyup="searchProducts()">
+                placeholder="Search products..."
+                onkeyup="searchProducts()"
+            >
 
             <i class="fa-solid fa-magnifying-glass"></i>
+
+            <button onclick="closeSearch()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
         </div>
 
     </div>
@@ -124,38 +138,39 @@
 </div>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="home">
 
-    <div class="hero-overlay"></div>
+    <div class="hero-image"></div>
 
     <div class="container">
 
         <div class="hero-content">
 
-            <p class="hero-label">
-                NEW SEASON / 2026
-            </p>
+            <div class="hero-tag">
+                URBANA / 2026
+            </div>
 
             <h1>
-                Elevate<br>
-                Your <span>Everyday.</span>
+                Built for<br>
+                <span>your</span> everyday.
             </h1>
 
-            <p class="hero-description">
-                Discover carefully selected fashion, accessories
-                and lifestyle essentials designed for modern living.
+            <p>
+                Discover carefully selected tech, fashion and lifestyle
+                essentials made for the way you live today.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="#shop" class="primary-btn">
+                <a href="#shop" class="btn-main">
                     Shop Collection
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
 
-                <a href="#collections" class="secondary-btn">
-                    Explore
+                <a href="#categories" class="btn-outline">
+                    Explore Categories
                 </a>
 
             </div>
@@ -164,86 +179,101 @@
 
     </div>
 
-    <div class="hero-scroll">
-        <span>SCROLL TO EXPLORE</span>
-        <div></div>
+    <div class="hero-number">
+        01 / 04
     </div>
 
 </section>
 
 
-<!-- BRAND STRIP -->
-<section class="brand-strip">
+<!-- ================= CATEGORIES ================= -->
 
-    <div>PREMIUM QUALITY</div>
-    <div>FAST DELIVERY</div>
-    <div>SECURE PAYMENT</div>
-    <div>EASY RETURNS</div>
-
-</section>
-
-
-<!-- COLLECTIONS -->
-<section class="collections" id="collections">
+<section class="categories" id="categories">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="heading-row">
 
             <div>
-                <p>CURATED FOR YOU</p>
-                <h2>Shop by <span>Collection</span></h2>
+                <small>EXPLORE</small>
+                <h2>Find your <span>style.</span></h2>
             </div>
 
-            <a href="#shop">
-                View All
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <p>
+                Everything you need.<br>
+                Nothing you don't.
+            </p>
 
         </div>
 
 
-        <div class="collection-grid">
+        <div class="category-grid">
 
-            <div class="collection-card fashion">
+            <div
+                class="category-box category-tech"
+                onclick="filterProducts('Electronics')"
+            >
+                <div class="category-number">01</div>
 
-                <div class="collection-text">
-                    <small>01</small>
-                    <h3>Fashion</h3>
-                    <p>Modern essentials</p>
-                    <button onclick="filterProducts('Fashion')">
-                        Explore
-                    </button>
-                </div>
-
-            </div>
-
-
-            <div class="collection-card tech">
-
-                <div class="collection-text">
-                    <small>02</small>
+                <div class="category-info">
                     <h3>Tech</h3>
-                    <p>Smart lifestyle</p>
-                    <button onclick="filterProducts('Electronics')">
+                    <p>Smart essentials</p>
+                    <span>
                         Explore
-                    </button>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
                 </div>
-
             </div>
 
 
-            <div class="collection-card accessories">
+            <div
+                class="category-box category-fashion"
+                onclick="filterProducts('Fashion')"
+            >
+                <div class="category-number">02</div>
 
-                <div class="collection-text">
-                    <small>03</small>
+                <div class="category-info">
+                    <h3>Streetwear</h3>
+                    <p>Everyday fashion</p>
+                    <span>
+                        Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <div
+                class="category-box category-accessories"
+                onclick="filterProducts('Accessories')"
+            >
+                <div class="category-number">03</div>
+
+                <div class="category-info">
                     <h3>Accessories</h3>
                     <p>Complete your look</p>
-                    <button onclick="filterProducts('Accessories')">
+                    <span>
                         Explore
-                    </button>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
                 </div>
+            </div>
 
+
+            <div
+                class="category-box category-travel"
+                onclick="filterProducts('Travel')"
+            >
+                <div class="category-number">04</div>
+
+                <div class="category-info">
+                    <h3>Travel</h3>
+                    <p>Go further</p>
+                    <span>
+                        Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </div>
             </div>
 
         </div>
@@ -253,43 +283,54 @@
 </section>
 
 
-<!-- PRODUCTS -->
-<section class="products" id="shop">
+<!-- ================= PRODUCTS ================= -->
+
+<section class="shop-section" id="shop">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="shop-heading">
 
             <div>
-                <p>OUR SELECTION</p>
-                <h2>Trending <span>Now</span></h2>
+                <small>THE COLLECTION</small>
+                <h2>Trending <span>now.</span></h2>
             </div>
 
-            <div class="filter-buttons">
+            <div class="filters">
 
-                <button class="filter active"
-                        onclick="filterProducts('All')">
+                <button
+                    class="filter active"
+                    onclick="filterProducts('All')"
+                >
                     All
                 </button>
 
-                <button class="filter"
-                        onclick="filterProducts('Fashion')">
-                    Fashion
-                </button>
-
-                <button class="filter"
-                        onclick="filterProducts('Electronics')">
+                <button
+                    class="filter"
+                    onclick="filterProducts('Electronics')"
+                >
                     Tech
                 </button>
 
-                <button class="filter"
-                        onclick="filterProducts('Accessories')">
+                <button
+                    class="filter"
+                    onclick="filterProducts('Fashion')"
+                >
+                    Fashion
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterProducts('Accessories')"
+                >
                     Accessories
                 </button>
 
-                <button class="filter"
-                        onclick="filterProducts('Beauty')">
-                    Beauty
+                <button
+                    class="filter"
+                    onclick="filterProducts('Travel')"
+                >
+                    Travel
                 </button>
 
             </div>
@@ -301,26 +342,35 @@
 
 
             <!-- PRODUCT 1 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Fashion"
-                 data-name="Essential Oversized Tee">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Electronics"
+                data-name="Pulse Wireless Headphones"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">BESTSELLER</span>
+                        <span class="badge-product">NEW</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Essential Oversized Tee')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Pulse Wireless Headphones')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
-                             alt="Oversized T Shirt">
+                        <img
+                            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+                            alt="Wireless Headphones"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Essential Oversized Tee',2499)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Pulse Wireless Headphones', 8999)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -328,19 +378,22 @@
 
                     <div class="product-info">
 
-                        <small>FASHION</small>
+                        <small>TECH / AUDIO</small>
 
-                        <h3>Essential Oversized Tee</h3>
+                        <h3>Pulse Wireless Headphones</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(48)</span>
+                            ★★★★★
+                            <span>4.9 (82)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 2,499</strong>
+                            <strong>Rs. 8,999</strong>
 
-                            <button onclick="addToCart('Essential Oversized Tee',2499)">
+                            <button
+                                onclick="addToCart('Pulse Wireless Headphones', 8999)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -354,26 +407,35 @@
 
 
             <!-- PRODUCT 2 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Accessories"
-                 data-name="Minimalist Watch">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Fashion"
+                data-name="Essential Heavyweight Tee"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge sale">-20%</span>
+                        <span class="badge-product dark">BESTSELLER</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Minimalist Watch')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Essential Heavyweight Tee')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
-                             alt="Watch">
+                        <img
+                            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                            alt="T Shirt"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Minimalist Watch',7999)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Essential Heavyweight Tee', 2499)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -381,22 +443,22 @@
 
                     <div class="product-info">
 
-                        <small>ACCESSORIES</small>
+                        <small>FASHION / ESSENTIALS</small>
 
-                        <h3>Minimalist Watch</h3>
+                        <h3>Essential Heavyweight Tee</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(31)</span>
+                            ★★★★★
+                            <span>4.8 (61)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <div>
-                                <strong>Rs. 7,999</strong>
-                                <del>Rs. 9,999</del>
-                            </div>
+                            <strong>Rs. 2,499</strong>
 
-                            <button onclick="addToCart('Minimalist Watch',7999)">
+                            <button
+                                onclick="addToCart('Essential Heavyweight Tee', 2499)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -410,26 +472,35 @@
 
 
             <!-- PRODUCT 3 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Electronics"
-                 data-name="Studio Wireless Headphones">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Accessories"
+                data-name="Aero Minimal Watch"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">NEW</span>
+                        <span class="badge-product sale">-20%</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Studio Wireless Headphones')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Aero Minimal Watch')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"
-                             alt="Headphones">
+                        <img
+                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                            alt="Watch"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Studio Wireless Headphones',12999)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Aero Minimal Watch', 6799)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -437,19 +508,25 @@
 
                     <div class="product-info">
 
-                        <small>ELECTRONICS</small>
+                        <small>ACCESSORIES / WATCHES</small>
 
-                        <h3>Studio Wireless Headphones</h3>
+                        <h3>Aero Minimal Watch</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(76)</span>
+                            ★★★★★
+                            <span>4.7 (43)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 12,999</strong>
+                            <div>
+                                <strong>Rs. 6,799</strong>
+                                <del>Rs. 8,499</del>
+                            </div>
 
-                            <button onclick="addToCart('Studio Wireless Headphones',12999)">
+                            <button
+                                onclick="addToCart('Aero Minimal Watch', 6799)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -463,26 +540,35 @@
 
 
             <!-- PRODUCT 4 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Accessories"
-                 data-name="Urban Sneakers">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Travel"
+                data-name="Urban Travel Backpack"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">HOT</span>
+                        <span class="badge-product">POPULAR</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Urban Sneakers')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Urban Travel Backpack')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
-                             alt="Sneakers">
+                        <img
+                            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
+                            alt="Backpack"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Urban Sneakers',8999)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Urban Travel Backpack', 5999)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -490,19 +576,22 @@
 
                     <div class="product-info">
 
-                        <small>ACCESSORIES</small>
+                        <small>TRAVEL / BAGS</small>
 
-                        <h3>Urban Sneakers</h3>
+                        <h3>Urban Travel Backpack</h3>
 
                         <div class="rating">
-                            ★★★★☆ <span>(42)</span>
+                            ★★★★★
+                            <span>4.9 (94)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 8,999</strong>
+                            <strong>Rs. 5,999</strong>
 
-                            <button onclick="addToCart('Urban Sneakers',8999)">
+                            <button
+                                onclick="addToCart('Urban Travel Backpack', 5999)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -516,26 +605,35 @@
 
 
             <!-- PRODUCT 5 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Beauty"
-                 data-name="Signature Fragrance">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Fashion"
+                data-name="Urban Runner Sneakers"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">NEW</span>
+                        <span class="badge-product dark">TRENDING</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Signature Fragrance')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Urban Runner Sneakers')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80"
-                             alt="Perfume">
+                        <img
+                            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+                            alt="Sneakers"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Signature Fragrance',6499)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Urban Runner Sneakers', 7499)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -543,19 +641,22 @@
 
                     <div class="product-info">
 
-                        <small>BEAUTY</small>
+                        <small>FASHION / FOOTWEAR</small>
 
-                        <h3>Signature Fragrance</h3>
+                        <h3>Urban Runner Sneakers</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(54)</span>
+                            ★★★★☆
+                            <span>4.6 (37)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 6,499</strong>
+                            <strong>Rs. 7,499</strong>
 
-                            <button onclick="addToCart('Signature Fragrance',6499)">
+                            <button
+                                onclick="addToCart('Urban Runner Sneakers', 7499)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -569,26 +670,35 @@
 
 
             <!-- PRODUCT 6 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Fashion"
-                 data-name="Classic Denim Jacket">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Electronics"
+                data-name="Core Smart Watch"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge sale">-15%</span>
+                        <span class="badge-product">NEW</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Classic Denim Jacket')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Core Smart Watch')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
-                             alt="Denim Jacket">
+                        <img
+                            src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+                            alt="Smart Watch"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Classic Denim Jacket',5499)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Core Smart Watch', 11999)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -596,22 +706,22 @@
 
                     <div class="product-info">
 
-                        <small>FASHION</small>
+                        <small>TECH / WEARABLES</small>
 
-                        <h3>Classic Denim Jacket</h3>
+                        <h3>Core Smart Watch</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(29)</span>
+                            ★★★★★
+                            <span>4.8 (56)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <div>
-                                <strong>Rs. 5,499</strong>
-                                <del>Rs. 6,499</del>
-                            </div>
+                            <strong>Rs. 11,999</strong>
 
-                            <button onclick="addToCart('Classic Denim Jacket',5499)">
+                            <button
+                                onclick="addToCart('Core Smart Watch', 11999)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -625,26 +735,35 @@
 
 
             <!-- PRODUCT 7 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Electronics"
-                 data-name="Smart Watch Pro">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Accessories"
+                data-name="Classic Urban Sunglasses"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">TRENDING</span>
+                        <span class="badge-product sale">SALE</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Smart Watch Pro')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Classic Urban Sunglasses')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80"
-                             alt="Smart Watch">
+                        <img
+                            src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80"
+                            alt="Sunglasses"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Smart Watch Pro',15999)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Classic Urban Sunglasses', 2999)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -652,19 +771,22 @@
 
                     <div class="product-info">
 
-                        <small>ELECTRONICS</small>
+                        <small>ACCESSORIES / EYEWEAR</small>
 
-                        <h3>Smart Watch Pro</h3>
+                        <h3>Classic Urban Sunglasses</h3>
 
                         <div class="rating">
-                            ★★★★☆ <span>(38)</span>
+                            ★★★★★
+                            <span>4.7 (28)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 15,999</strong>
+                            <strong>Rs. 2,999</strong>
 
-                            <button onclick="addToCart('Smart Watch Pro',15999)">
+                            <button
+                                onclick="addToCart('Classic Urban Sunglasses', 2999)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -678,26 +800,35 @@
 
 
             <!-- PRODUCT 8 -->
-            <div class="col-lg-3 col-md-6 product-item"
-                 data-category="Accessories"
-                 data-name="Leather Bag">
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-category="Travel"
+                data-name="Everyday Carry Sling"
+            >
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <span class="product-badge">LIMITED</span>
+                        <span class="badge-product dark">LIMITED</span>
 
-                        <button class="wishlist"
-                                onclick="addWishlist(this,'Leather Bag')">
+                        <button
+                            class="heart-btn"
+                            onclick="toggleWishlist(this, 'Everyday Carry Sling')"
+                        >
                             <i class="fa-regular fa-heart"></i>
                         </button>
 
-                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"
-                             alt="Leather Bag">
+                        <img
+                            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80"
+                            alt="Bag"
+                        >
 
-                        <button class="quick-view"
-                                onclick="quickView('Leather Bag',7499)">
+                        <button
+                            class="quick-btn"
+                            onclick="quickView('Everyday Carry Sling', 3999)"
+                        >
                             QUICK VIEW
                         </button>
 
@@ -705,19 +836,22 @@
 
                     <div class="product-info">
 
-                        <small>ACCESSORIES</small>
+                        <small>TRAVEL / EVERYDAY</small>
 
-                        <h3>Premium Leather Bag</h3>
+                        <h3>Everyday Carry Sling</h3>
 
                         <div class="rating">
-                            ★★★★★ <span>(63)</span>
+                            ★★★★★
+                            <span>4.9 (72)</span>
                         </div>
 
-                        <div class="product-bottom">
+                        <div class="price-row">
 
-                            <strong>Rs. 7,499</strong>
+                            <strong>Rs. 3,999</strong>
 
-                            <button onclick="addToCart('Premium Leather Bag',7499)">
+                            <button
+                                onclick="addToCart('Everyday Carry Sling', 3999)"
+                            >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
@@ -736,62 +870,84 @@
 </section>
 
 
-<!-- PROMO -->
+<!-- ================= PROMO ================= -->
+
 <section class="promo">
 
-    <div class="promo-content">
+    <div class="promo-inner">
 
-        <p>LIMITED TIME OFFER</p>
+        <small>URBANA SELECTS</small>
 
-        <h2>Up to <span>40% OFF</span></h2>
+        <h2>
+            Less ordinary.<br>
+            <span>More you.</span>
+        </h2>
 
-        <p>On selected pieces from our latest collection.</p>
+        <p>
+            Curated products for people who move differently.
+        </p>
 
-        <a href="#shop">Shop Sale</a>
+        <a href="#shop">
+            Explore the drop
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- ABOUT -->
-<section class="about" id="about">
+<!-- ================= STORY ================= -->
+
+<section class="story" id="story">
 
     <div class="container">
 
-        <div class="about-grid">
+        <div class="story-grid">
 
-            <div class="about-image">
-                <div class="about-number">01</div>
+            <div class="story-image">
+
+                <div class="story-label">
+                    URBANA
+                </div>
+
             </div>
 
-            <div class="about-text">
+            <div class="story-content">
 
-                <p>THE LUXORA STORY</p>
+                <small>OUR PHILOSOPHY</small>
 
-                <h2>Designed for people who value <span>quality.</span></h2>
+                <h2>
+                    Good design<br>
+                    should feel <span>natural.</span>
+                </h2>
 
-                <p class="about-description">
-                    We believe shopping should feel effortless.
-                    That's why we carefully select products that combine
-                    timeless design, everyday function and premium quality.
+                <p>
+                    URBANA was created around a simple idea:
+                    everyday products should look good, work well
+                    and fit naturally into your lifestyle.
                 </p>
 
-                <div class="stats">
+                <p>
+                    From technology to streetwear and travel essentials,
+                    every product is selected with purpose.
+                </p>
+
+                <div class="story-stats">
 
                     <div>
-                        <strong>50K+</strong>
-                        <small>Customers</small>
+                        <strong>25K+</strong>
+                        <span>Happy Customers</span>
                     </div>
 
                     <div>
-                        <strong>4.9</strong>
-                        <small>Average Rating</small>
+                        <strong>4.8/5</strong>
+                        <span>Average Rating</span>
                     </div>
 
                     <div>
-                        <strong>24/7</strong>
-                        <small>Support</small>
+                        <strong>48H</strong>
+                        <span>Fast Dispatch</span>
                     </div>
 
                 </div>
@@ -805,23 +961,31 @@
 </section>
 
 
-<!-- NEWSLETTER -->
+<!-- ================= NEWSLETTER ================= -->
+
 <section class="newsletter">
 
     <div class="container">
 
-        <p>STAY IN THE LOOP</p>
+        <small>JOIN THE COMMUNITY</small>
 
-        <h2>Get the latest from LUXORA.</h2>
+        <h2>Be the first to know.</h2>
+
+        <p>
+            New drops, special offers and things worth knowing.
+        </p>
 
         <div class="newsletter-form">
 
-            <input type="email"
-                   id="emailInput"
-                   placeholder="Enter your email">
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="Your email address"
+            >
 
             <button onclick="subscribe()">
-                Subscribe
+                Join
+                <i class="fa-solid fa-arrow-right"></i>
             </button>
 
         </div>
@@ -831,19 +995,20 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+
 <footer id="contact">
 
     <div class="container">
 
-        <div class="footer-grid">
+        <div class="footer-top">
 
             <div class="footer-brand">
 
-                <h2>LUX<span>ORA</span></h2>
+                <h2>URBANA<span>.</span></h2>
 
                 <p>
-                    Premium essentials for modern living.
+                    Modern products for modern living.
                 </p>
 
                 <div class="socials">
@@ -858,36 +1023,49 @@
             </div>
 
 
-            <div>
+            <div class="footer-column">
+
                 <h4>SHOP</h4>
+
                 <a href="#shop">All Products</a>
                 <a href="#shop">New Arrivals</a>
                 <a href="#shop">Best Sellers</a>
                 <a href="#shop">Sale</a>
+
             </div>
 
 
-            <div>
+            <div class="footer-column">
+
                 <h4>HELP</h4>
+
                 <a href="#">Shipping</a>
                 <a href="#">Returns</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contact</a>
+                <a href="#">FAQs</a>
+                <a href="#">Support</a>
+
             </div>
 
 
-            <div>
+            <div class="footer-column">
+
                 <h4>CONTACT</h4>
+
                 <p>Karachi, Pakistan</p>
-                <p>hello@luxora.com</p>
+                <p>hello@urbana.store</p>
                 <p>+92 300 1234567</p>
+
             </div>
 
         </div>
 
+
         <div class="footer-bottom">
-            <p>© 2026 LUXORA. All Rights Reserved.</p>
-            <p>Privacy · Terms</p>
+
+            <span>© 2026 URBANA. All Rights Reserved.</span>
+
+            <span>Privacy Policy · Terms</span>
+
         </div>
 
     </div>
@@ -895,12 +1073,20 @@
 </footer>
 
 
-<!-- CART SIDEBAR -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<!-- ================= CART OVERLAY ================= -->
 
-<aside class="cart-sidebar" id="cartSidebar">
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart()"
+></div>
 
-    <div class="cart-header">
+
+<!-- ================= CART ================= -->
+
+<aside class="cart" id="cart">
+
+    <div class="cart-head">
 
         <div>
             <small>YOUR BAG</small>
@@ -913,24 +1099,35 @@
 
     </div>
 
-    <div id="cartItems">
+
+    <div class="cart-items" id="cartItems">
 
         <div class="empty-cart">
+
             <i class="fa-solid fa-bag-shopping"></i>
+
             <h4>Your bag is empty</h4>
-            <p>Add something you love.</p>
+
+            <p>Add something you like.</p>
+
         </div>
 
     </div>
 
-    <div class="cart-footer">
 
-        <div class="cart-total">
+    <div class="cart-bottom">
+
+        <div class="total-row">
+
             <span>Subtotal</span>
-            <strong id="cartTotal">Rs. 0</strong>
+
+            <strong id="cartTotal">
+                Rs. 0
+            </strong>
+
         </div>
 
-        <button class="checkout" onclick="checkout()">
+        <button class="checkout-btn" onclick="checkout()">
             Checkout
             <i class="fa-solid fa-arrow-right"></i>
         </button>
@@ -940,27 +1137,39 @@
 </aside>
 
 
-<!-- QUICK VIEW MODAL -->
-<div class="quick-modal" id="quickModal">
+<!-- ================= QUICK VIEW ================= -->
 
-    <div class="quick-box">
+<div class="modal-bg" id="quickModal">
 
-        <button class="modal-close" onclick="closeQuickView()">
+    <div class="quick-modal">
+
+        <button
+            class="modal-close"
+            onclick="closeQuickView()"
+        >
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <p>PRODUCT DETAILS</p>
+        <small>PRODUCT DETAILS</small>
 
-        <h2 id="quickName">Product</h2>
+        <h2 id="quickName">
+            Product
+        </h2>
 
-        <h3 id="quickPrice">Rs. 0</h3>
+        <h3 id="quickPrice">
+            Rs. 0
+        </h3>
 
         <p>
-            Premium quality product selected from our latest collection.
-            Add it to your bag and enjoy a smooth shopping experience.
+            A carefully selected URBANA product designed
+            to bring style, quality and everyday functionality
+            into your routine.
         </p>
 
-        <button id="quickAdd" class="primary-btn">
+        <button
+            class="btn-main"
+            id="quickAdd"
+        >
             Add to Cart
         </button>
 
@@ -969,10 +1178,12 @@
 </div>
 
 
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
-<!-- JS -->
+<!-- JavaScript -->
 <script src="script.js"></script>
 
 </body>

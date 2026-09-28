@@ -21,38 +21,51 @@ window.addEventListener("scroll", function () {
 
 function openSearch() {
 
-    document.getElementById("searchOverlay").classList.add("show");
+    document.getElementById("searchPanel")
+        .classList.add("show");
 
-    setTimeout(function () {
-        document.getElementById("searchInput").focus();
-    }, 200);
+    document.getElementById("searchInput").focus();
 
 }
 
 
 function closeSearch() {
 
-    document.getElementById("searchOverlay").classList.remove("show");
+    document.getElementById("searchPanel")
+        .classList.remove("show");
+
+    document.getElementById("searchInput").value = "";
+
+    searchProducts();
 
 }
 
 
 function searchProducts() {
 
-    const searchInput = document.getElementById("searchInput");
+    const input =
+        document.getElementById("searchInput");
 
-    const value = searchInput.value.toLowerCase();
+    const value =
+        input.value.toLowerCase().trim();
 
-    const products = document.querySelectorAll(".product-item");
+    const products =
+        document.querySelectorAll(".product-item");
+
 
     products.forEach(function (product) {
 
-        const name = product.dataset.name.toLowerCase();
+        const name =
+            product.dataset.name.toLowerCase();
 
         if (name.includes(value)) {
+
             product.style.display = "";
+
         } else {
+
             product.style.display = "none";
+
         }
 
     });
@@ -60,13 +73,16 @@ function searchProducts() {
 }
 
 
-// ================= PRODUCT FILTER =================
+// ================= FILTER =================
 
 function filterProducts(category) {
 
-    const products = document.querySelectorAll(".product-item");
+    const products =
+        document.querySelectorAll(".product-item");
 
-    const filters = document.querySelectorAll(".filter");
+    const buttons =
+        document.querySelectorAll(".filter");
+
 
     products.forEach(function (product) {
 
@@ -86,7 +102,7 @@ function filterProducts(category) {
     });
 
 
-    filters.forEach(function (button) {
+    buttons.forEach(function (button) {
 
         button.classList.remove("active");
 
@@ -104,24 +120,36 @@ function filterProducts(category) {
 
     });
 
+
+    document.getElementById("shop")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
 }
 
 
 // ================= WISHLIST =================
 
-function addWishlist(button, name) {
+function toggleWishlist(button, name) {
 
-    const icon = button.querySelector("i");
+    const icon =
+        button.querySelector("i");
+
 
     if (wishlist.includes(name)) {
 
         wishlist = wishlist.filter(function (item) {
+
             return item !== name;
+
         });
+
 
         button.classList.remove("liked");
 
-        icon.className = "fa-regular fa-heart";
+        icon.className =
+            "fa-regular fa-heart";
 
     } else {
 
@@ -129,19 +157,19 @@ function addWishlist(button, name) {
 
         button.classList.add("liked");
 
-        icon.className = "fa-solid fa-heart";
+        icon.className =
+            "fa-solid fa-heart";
 
     }
 
-    document.getElementById("wishlistCount").innerText =
-        wishlist.length;
+
+    document.getElementById("wishlistCount")
+        .innerText = wishlist.length;
 
 }
 
 
-// ================= OPEN WISHLIST =================
-
-function openWishlist() {
+function showWishlist() {
 
     if (wishlist.length === 0) {
 
@@ -151,8 +179,9 @@ function openWishlist() {
 
     }
 
+
     alert(
-        "Wishlist:\n\n" +
+        "YOUR WISHLIST\n\n" +
         wishlist.join("\n")
     );
 
@@ -163,21 +192,26 @@ function openWishlist() {
 
 function addToCart(name, price) {
 
-    const existingItem = cart.find(function (item) {
-        return item.name === name;
-    });
+    const existing =
+        cart.find(function (item) {
+
+            return item.name === name;
+
+        });
 
 
-    if (existingItem) {
+    if (existing) {
 
-        existingItem.quantity++;
+        existing.quantity++;
 
     } else {
 
         cart.push({
+
             name: name,
             price: price,
             quantity: 1
+
         });
 
     }
@@ -194,26 +228,27 @@ function addToCart(name, price) {
 
 function updateCart() {
 
-    let totalItems = 0;
-
-    let totalPrice = 0;
+    let count = 0;
+    let total = 0;
 
 
     cart.forEach(function (item) {
 
-        totalItems += item.quantity;
+        count += item.quantity;
 
-        totalPrice += item.price * item.quantity;
+        total +=
+            item.price * item.quantity;
 
     });
 
 
-    document.getElementById("cartCount").innerText =
-        totalItems;
+    document.getElementById("cartCount")
+        .innerText = count;
 
 
-    document.getElementById("cartTotal").innerText =
-        "Rs. " + totalPrice.toLocaleString();
+    document.getElementById("cartTotal")
+        .innerText =
+        "Rs. " + total.toLocaleString();
 
 
     displayCart();
@@ -232,15 +267,17 @@ function displayCart() {
     if (cart.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty-cart">
 
                 <i class="fa-solid fa-bag-shopping"></i>
 
                 <h4>Your bag is empty</h4>
 
-                <p>Add something you love.</p>
+                <p>Add something you like.</p>
 
             </div>
+
         `;
 
         return;
@@ -254,6 +291,7 @@ function displayCart() {
     cart.forEach(function (item, index) {
 
         html += `
+
             <div class="cart-item">
 
                 <div class="cart-item-info">
@@ -266,7 +304,8 @@ function displayCart() {
 
                     <div class="quantity">
 
-                        <button onclick="changeQuantity(${index}, -1)">
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
                             -
                         </button>
 
@@ -274,7 +313,8 @@ function displayCart() {
                             ${item.quantity}
                         </span>
 
-                        <button onclick="changeQuantity(${index}, 1)">
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
                             +
                         </button>
 
@@ -292,6 +332,7 @@ function displayCart() {
                 </button>
 
             </div>
+
         `;
 
     });
@@ -302,7 +343,7 @@ function displayCart() {
 }
 
 
-// ================= CHANGE QUANTITY =================
+// ================= QUANTITY =================
 
 function changeQuantity(index, amount) {
 
@@ -321,7 +362,7 @@ function changeQuantity(index, amount) {
 }
 
 
-// ================= REMOVE CART ITEM =================
+// ================= REMOVE =================
 
 function removeCartItem(index) {
 
@@ -336,13 +377,10 @@ function removeCartItem(index) {
 
 function openCart() {
 
-    document
-        .getElementById("cartSidebar")
+    document.getElementById("cart")
         .classList.add("show");
 
-
-    document
-        .getElementById("cartOverlay")
+    document.getElementById("cartOverlay")
         .classList.add("show");
 
 }
@@ -352,13 +390,10 @@ function openCart() {
 
 function closeCart() {
 
-    document
-        .getElementById("cartSidebar")
+    document.getElementById("cart")
         .classList.remove("show");
 
-
-    document
-        .getElementById("cartOverlay")
+    document.getElementById("cartOverlay")
         .classList.remove("show");
 
 }
@@ -368,11 +403,12 @@ function closeCart() {
 
 function quickView(name, price) {
 
-    document.getElementById("quickName").innerText =
-        name;
+    document.getElementById("quickName")
+        .innerText = name;
 
 
-    document.getElementById("quickPrice").innerText =
+    document.getElementById("quickPrice")
+        .innerText =
         "Rs. " + price.toLocaleString();
 
 
@@ -386,19 +422,15 @@ function quickView(name, price) {
         };
 
 
-    document
-        .getElementById("quickModal")
+    document.getElementById("quickModal")
         .classList.add("show");
 
 }
 
 
-// ================= CLOSE QUICK VIEW =================
-
 function closeQuickView() {
 
-    document
-        .getElementById("quickModal")
+    document.getElementById("quickModal")
         .classList.remove("show");
 
 }
@@ -410,7 +442,7 @@ function checkout() {
 
     if (cart.length === 0) {
 
-        alert("Your cart is empty!");
+        alert("Your cart is empty.");
 
         return;
 
@@ -418,8 +450,8 @@ function checkout() {
 
 
     alert(
-        "Thank you for shopping with LUXORA!\n\n" +
-        "Your order has been placed successfully."
+        "ORDER CONFIRMED!\n\n" +
+        "Thank you for shopping with URBANA."
     );
 
 
@@ -437,12 +469,22 @@ function checkout() {
 function subscribe() {
 
     const email =
-        document.getElementById("emailInput").value.trim();
+        document.getElementById("emailInput")
+        .value.trim();
 
 
     if (email === "") {
 
-        alert("Please enter your email.");
+        alert("Please enter your email address.");
+
+        return;
+
+    }
+
+
+    if (!email.includes("@")) {
+
+        alert("Please enter a valid email address.");
 
         return;
 
@@ -450,16 +492,18 @@ function subscribe() {
 
 
     alert(
-        "Thank you for subscribing to LUXORA!"
+        "You're in!\n\n" +
+        "Welcome to the URBANA community."
     );
 
 
-    document.getElementById("emailInput").value = "";
+    document.getElementById("emailInput")
+        .value = "";
 
 }
 
 
-// ================= ESCAPE KEY =================
+// ================= ESC KEY =================
 
 document.addEventListener("keydown", function (event) {
 
